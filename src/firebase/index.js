@@ -8,7 +8,7 @@ const firebaseConfig = {
   storageBucket: "todo-app-3a221.appspot.com",
   messagingSenderId: "656286115263",
   appId: "1:656286115263:web:7d41f664db10e5e112ad0a"
-};
+}
 
-const app = initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig)
 export default firebase 
