@@ -20,10 +20,11 @@ function AddNewTodo(){
     const [todoProject, setTodoProject] = useState(selectedProject)
 
     function handleSubmit(e){
+        console.log("showModal"+showModal)
         e.preventDefault()
 
         if( text && !calendarItems.includes(todoProject)){
-            firebase
+           /*  firebase
                 .firestore()
                 .collection('todos')
                 .add(
@@ -36,13 +37,13 @@ function AddNewTodo(){
                         color : randomcolor(),
                         projectName : todoProject
                     }
-                )
+                ) */
 
             setShowModal(false)
             setText('')
             setDay(new Date())
             setTime(new Date())
-        }
+        } 
     }
 
     useEffect( () => {

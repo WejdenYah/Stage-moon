@@ -1,9 +1,18 @@
 import React, {useState} from 'react'
 import { ArrowClockwise, CheckCircleFill, Circle, Trash } from 'react-bootstrap-icons'
+import firebase from '../firebase'
 
 function Todo({todo}){
     const [hover, setHover] = useState(false)
 
+    const deleteTodo = todo => {
+        firebase
+            .firestore()
+            .collection('todos')
+            .doc(todo.id)
+            .delete()
+    }
+ 
     return (
         <div className='Todo'>
             <div
@@ -36,7 +45,10 @@ function Todo({todo}){
                         </span>
                     }
                 </div>
-                <div className="delete-todo">
+                <div
+                    className="delete-todo"
+                    onClick={ () => deleteTodo(todo)}
+                >
                     {
                         (hover || todo.checked) &&
                         <span>
